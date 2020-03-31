@@ -1,6 +1,6 @@
 let Food=function (foodHeight,foodWidth,color) {
-    this.foodX=Math.floor(Math.random()*cavas.clientWidth);
-    this.foodY=Math.floor(Math.random()*cavas.clientHeight);
+    this.x=Math.floor(Math.random()*cavas.clientWidth);
+    this.y=Math.floor(Math.random()*cavas.clientHeight);
 
     this.color=color;
     this.foodHeight=foodHeight;
@@ -8,6 +8,6 @@ let Food=function (foodHeight,foodWidth,color) {
 
     this.drawFood=function () {
         ctx.fillStyle=this.color;
-        ctx.fillRect(this.foodX, this.foodY, this.foodWidth, this.foodHeight);
+        ctx.fillRect(this.x, this.y, this.foodWidth, this.foodHeight);
     }
 }

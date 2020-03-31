@@ -4,25 +4,24 @@ const ctx=cavas.getContext("2d");
 
 let gameScreen=new Screen(300, 450);
 let snake = new Snake(20,40,10,10,5, " red ");
-let food=new Food(7,7,"black");
+let food=new Food(10,10,"black");
+snake.drawSnake();
+food.drawFood();
 
-
-function start(){
-    snake.drawSnake();
-    food.drawFood();
-}
 
 //hàm vẽ lại game
 function redraw() {
     gameScreen.clear();
-     snake.drawSnake();
+    snake.drawSnake();
     food.drawFood();
-
 }
 
 //hàm kiểm tra va chạm
 function checkEating() {
-    if (snake.x===food.foodY && snake.y===food.foodY) {
+    if ( snake.x < food.x + food.width &&
+        snake.x + snake.width > food.x &&
+        snake.y < food.y + food.height &&
+        snake.y + snake.height > food.y) {
         return true;
     }
     return false;
@@ -32,14 +31,7 @@ function ate() {
         food.drawFood();
         console.log(checkEating());
     }
-
 }
-// function snakeLength() {
-//     if (checkEating()){
-//         snake.width+=food.foodWidth;
-//         console.log("hi");
-//     }
-// }
 
 function moveRight() {
     snake.moveRight();
